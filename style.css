@@ -64,3 +64,16 @@ html[data-theme=light] .floating-call{box-shadow:0 18px 36px rgba(59,130,246,.18
 @media (max-width:1100px){.hero-grid,.about-grid,.calculator-layout,.contact-grid,.footer-grid,.process-grid{grid-template-columns:1fr}.cards-3,.feature-grid,.timeline-grid,.project-grid,.faq-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.nav-toggle{display:inline-grid;place-items:center}.nav{position:absolute;top:76px;right:22px;display:flex;flex-direction:column;align-items:flex-start;padding:16px;gap:10px;min-width:240px;border-radius:22px;background:color-mix(in srgb,var(--bg) 96%,#000);border:1px solid var(--line);box-shadow:var(--shadow);opacity:0;transform:translateY(-12px) scale(.98);pointer-events:none;transition:opacity .25s ease,transform .25s ease}.nav.is-open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}.header-cta{display:none}.breadcrumbs{padding-top:10px}}
 @media (max-width:760px){.wrap{padding:0 16px}.hero{padding-top:28px}.hero h1{font-size:clamp(2.25rem,11vw,3.6rem)}.hero-metrics,.cards-3,.feature-grid,.timeline-grid,.project-grid,.faq-grid,.process-grid{grid-template-columns:1fr}.section-heading,.cta-banner,.footer-bottom{flex-direction:column;align-items:flex-start}.mini-badges{gap:8px}.mini-badges span{width:100%;justify-content:center}.hero-actions .btn,.cta-banner .btn{width:100%}.footer-grid{gap:26px}.floating-actions{right:12px;bottom:12px}.floating-btn{width:54px;height:54px}.map-wrap iframe{height:260px}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+/* Fail-safe: Ensure hero and content remain visible if AOS fails to load */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+html.no-js [data-aos],
+body:not(.aos-initialized) [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
