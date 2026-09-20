@@ -1,0 +1,62 @@
+name: Generate and Fix Missing Assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+jobs:
+  build-assets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Image Tools
+        run: pip install pillow requests
+
+      - name: Generate Assets
+        run: |
+          python -c "
+          import os, urllib.request
+          from PIL import Image
+
+          os.makedirs('assets', exist_ok=True)
+
+          # SVG Logo
+          logo_svg = '''<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 540 120\"><circle cx=\"65\" cy=\"60\" r=\"22\" fill=\"#F59E0B\"/><polygon points=\"65,48 95,62 65,76 35,62\" fill=\"#0284C7\"/><text x=\"130\" y=\"65\" font-family=\"sans-serif\" font-size=\"36\" font-weight=\"800\" fill=\"#0F172A\">TRIVIDHA</text><text x=\"340\" y=\"65\" font-family=\"sans-serif\" font-size=\"36\" font-weight=\"800\" fill=\"#F59E0B\">SOLAR</text><text x=\"132\" y=\"90\" font-family=\"sans-serif\" font-size=\"11\" font-weight=\"600\" fill=\"#64748B\" letter-spacing=\"2\">A DIVISION OF TRIVIDHA SYNERGY LLP</text></svg>'''
+          with open('assets/logo.svg', 'w') as f: f.write(logo_svg)
+
+          # Process SVGs
+          for i in range(1, 5):
+              with open(f'assets/process-{i}.svg', 'w') as f:
+                  f.write(f'''<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"40\" fill=\"#E0F2FE\" stroke=\"#0284C7\" stroke-width=\"3\"/><text x=\"50\" y=\"58\" font-size=\"24\" text-anchor=\"middle\" fill=\"#0284C7\" font-weight=\"bold\">{i}</text></svg>''')
+
+          # Hero Background
+          try:
+              urllib.request.urlretrieve('https://images.unsplash.com/photo-1509391365360-2e959784a276?w=1920&q=80', 'hero.jpg')
+              img = Image.open('hero.jpg')
+              img.save('assets/hero-bg.webp', 'WEBP', quality=85)
+          except Exception:
+              Image.new('RGB', (1920, 1080), color='#0f172a').save('assets/hero-bg.webp', 'WEBP')
+
+          # Icons & Favicon
+          for size in [192, 512]:
+              Image.new('RGBA', (size, size), color='#F59E0B').save(f'assets/logo-{size}.png', 'PNG')
+          Image.new('RGBA', (32, 32), color='#F59E0B').save('favicon.ico', 'ICO')
+          "
+
+      - name: Commit and Push Assets
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/ favicon.ico
+          git diff --staged --quiet || (git commit -m "fix: generate all missing assets and icons" && git push origin main)
