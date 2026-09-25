@@ -25,7 +25,6 @@ const navItems = [
   { label: 'Solutions', href: '#solutions', hasDropdown: true },
   { label: 'Why Us', href: '#why-us' },
   { label: 'PM Surya Ghar', href: '#calculator' },
-  { label: 'Partner Portal', href: '/dashboard/partner' },
   { label: 'Customer Login', href: '/dashboard/customer' },
 ];
 
@@ -67,9 +66,20 @@ const partnerBenefits = [
 ];
 
 const footerLinks = {
-  Company: ['About', 'Projects', 'Careers', 'Media'],
-  Solutions: ['Residential', 'Commercial', 'Industrial', 'Agriculture'],
-  Resources: ['PM Surya Ghar', 'Net Metering', 'Downloads', 'FAQs'],
+  Company: [
+    { label: 'About', href: '/about' },
+    { label: 'Projects', href: '/projects' },
+    { label: 'Careers', href: '/careers' },
+    { label: 'Contact', href: '/contact' },
+  ],
+  Solutions: [
+    { label: 'Residential', href: '/services/residential' },
+    { label: 'Commercial', href: '/services/commercial' },
+    { label: 'Industrial', href: '/services/industrial' },
+    { label: 'On-Grid', href: '/services/on-grid' },
+    { label: 'Off-Grid', href: '/services/off-grid' },
+    { label: 'Hybrid', href: '/services/hybrid' },
+  ],
 };
 
 export default function HomePage() {
@@ -170,9 +180,6 @@ export default function HomePage() {
             <div className="flex flex-wrap gap-4">
               <Link href="#calculator" className="inline-flex items-center gap-2 rounded-full bg-amber-500 px-6 py-3.5 text-base font-semibold text-slate-900 transition hover:bg-amber-400">
                 Book Free Site Survey <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link href="/dashboard/customer" className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3.5 text-base font-semibold text-slate-800 transition hover:border-amber-400 hover:text-slate-900">
-                Customer Login
               </Link>
             </div>
 
@@ -469,7 +476,7 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Company</h3>
               <ul className="mt-5 space-y-3 text-sm text-slate-400">
                 {footerLinks.Company.map((link) => (
-                  <li key={link}><Link href="#" className="transition hover:text-white">{link}</Link></li>
+                  <li key={link.label}><Link href={link.href} className="transition hover:text-white">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
@@ -478,7 +485,7 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Solutions</h3>
               <ul className="mt-5 space-y-3 text-sm text-slate-400">
                 {footerLinks.Solutions.map((link) => (
-                  <li key={link}><Link href="#" className="transition hover:text-white">{link}</Link></li>
+                  <li key={link.label}><Link href={link.href} className="transition hover:text-white">{link.label}</Link></li>
                 ))}
               </ul>
             </div>
