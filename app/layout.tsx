@@ -1,16 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Manrope } from 'next/font/google';
 import './globals.css';
-
-const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
-
-const manrope = Manrope({
-  subsets: ['latin'],
-  variable: '--font-display',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://trividhasolar.in'),
@@ -19,23 +8,21 @@ export const metadata: Metadata = {
     template: '%s | Trividha Solar',
   },
   description:
-    'Enterprise solar platform for Gujarat rooftops, PM Surya Ghar support, project operations and partner enablement.',
-  keywords: ['Trividha Solar', 'Gujarat solar', 'PM Surya Ghar', 'solar EPC', 'enterprise portal'],
+    'PAN-India solar EPC solutions with rooftop solar, commercial systems, industrial project delivery, PM Surya Ghar guidance and partner support.',
+  keywords: ['Trividha Solar', 'solar EPC India', 'PM Surya Ghar', 'rooftop solar', 'industrial solar', 'agricultural solar pumps'],
   openGraph: {
-    title: 'Trividha Solar | Install Solar. Invest in Tomorrow.',
-    description: 'Premium rooftop solar solutions and enterprise-grade solar operations for Gujarat.',
+    title: 'Trividha Solar | Premium solar EPC solutions across India',
+    description: 'Clean energy systems for homes, businesses, industrial facilities and agricultural operations.',
     url: 'https://trividhasolar.in',
     siteName: 'Trividha Solar',
-    images: [{ url: '/assets/logo.svg', width: 640, height: 180, alt: 'Trividha Solar logo' }],
+    type: 'website',
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${manrope.variable} bg-slate-950 text-slate-100 antialiased`}>
-        {children}
-      </body>
+      <body className="bg-white text-slate-900 antialiased">{children}</body>
     </html>
   );
 }
