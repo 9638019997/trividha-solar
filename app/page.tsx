@@ -107,13 +107,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6">
           <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-emerald-500 text-lg font-black text-slate-900 shadow-lg shadow-amber-200">
-              T
-            </div>
-            <div>
-              <div className="text-lg font-extrabold tracking-tight text-slate-900">Trividha Solar</div>
-              <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-slate-500">Division of Trividha Synergy LLP</div>
-            </div>
+            <img src="/assets/logo.svg" alt="Trividha Solar logo" className="h-12 w-auto" />
           </Link>
 
           <nav className="hidden items-center gap-2 text-sm font-medium text-slate-700 lg:flex">
@@ -446,13 +440,7 @@ export default function HomePage() {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_0.7fr_0.7fr_0.9fr]">
             <div>
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-400 via-amber-500 to-emerald-500 text-lg font-black text-slate-900">
-                  T
-                </div>
-                <div>
-                  <div className="text-lg font-extrabold text-white">Trividha Solar</div>
-                  <div className="text-[10px] font-medium uppercase tracking-[0.18em] text-slate-400">Division of Trividha Synergy LLP</div>
-                </div>
+                <img src="/assets/logo.svg" alt="Trividha Solar logo" className="h-12 w-auto" />
               </div>
               <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">
                 PAN-India solar EPC solutions for homes, businesses and agriculture—designed for long-term energy savings, sustainability and trust.
