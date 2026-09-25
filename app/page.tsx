@@ -104,19 +104,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-white text-slate-800">
-      <div className="border-b border-slate-200 bg-slate-900 text-sm text-slate-200">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-3 md:flex-row md:items-center md:justify-between md:px-6">
-          <div className="flex flex-wrap items-center gap-4">
-            <span className="inline-flex items-center gap-2"><PhoneCall className="h-4 w-4 text-amber-400" /> +91 96380 19997</span>
-            <span className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-amber-400" /> hello@trividhasolar.in</span>
-            <span className="inline-flex items-center gap-2"><MessageCircle className="h-4 w-4 text-amber-400" /> WhatsApp</span>
-          </div>
-          <div className="inline-flex items-center gap-2 text-amber-300">
-            <MapPin className="h-4 w-4" /> PAN-India Solar EPC Partner Network
-          </div>
-        </div>
-      </div>
-
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 md:px-6">
           <Link href="/" className="flex items-center gap-3">
@@ -494,7 +481,7 @@ export default function HomePage() {
               <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-200">Contact</h3>
               <ul className="mt-5 space-y-3 text-sm text-slate-400">
                 <li className="inline-flex items-center gap-2"><PhoneCall className="h-4 w-4 text-amber-400" /> +91 96380 19997</li>
-                <li className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-amber-400" /> hello@trividhasolar.in</li>
+                <li className="inline-flex items-center gap-2"><Mail className="h-4 w-4 text-amber-400" /> info.trividhasolar@gmail.com</li>
                 <li className="inline-flex items-center gap-2"><MessageCircle className="h-4 w-4 text-amber-400" /> WhatsApp support</li>
               </ul>
             </div>
