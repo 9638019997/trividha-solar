@@ -1,0 +1,29 @@
+
+> trividha-solar@1.0.0 build
+> next build
+
+   ▲ Next.js 15.1.7
+
+   Creating an optimized production build ...
+Failed to compile.
+
+./lib/supabase/client.ts
+Error:   [31mx[0m You're importing a component that needs "next/headers". That only works in a Server Component which is not supported in the pages/ directory. Read more: https://nextjs.org/docs/app/building-
+  [31m|[0m your-application/rendering/server-components
+  [31m|[0m 
+  [31m|[0m 
+   ,-[[36;1;4m/workspaces/trividha-solar/lib/supabase/client.ts[0m:2:1]
+ [2m1[0m | import { createBrowserClient, createServerClient } from '@supabase/ssr';
+ [2m2[0m | import { cookies } from 'next/headers';
+   : [35;1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ [2m3[0m | 
+ [2m4[0m | export function createSupabaseBrowserClient() {
+ [2m5[0m |   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+   `----
+
+Import trace for requested module:
+./lib/supabase/client.ts
+./app/dashboard/customer/layout.tsx
+
+
+> Build failed because of webpack errors
