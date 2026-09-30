@@ -79,21 +79,13 @@
       "static/chunks/8173-de29aeafc18fed74.js",
       "static/chunks/app/services/on-grid/page-75def71ba01a42fe.js"
     ],
-    "/about/page": [
+    "/services/ev-charging/page": [
       "static/chunks/webpack-8179614763559006.js",
       "static/chunks/4bd1b696-461d313b0f992674.js",
       "static/chunks/1517-e36c2857d793a71e.js",
       "static/chunks/main-app-c9d808af9ad15d0b.js",
       "static/chunks/8173-de29aeafc18fed74.js",
-      "static/chunks/app/about/page-57ac344c9993e2dd.js"
-    ],
-    "/services/agriculture/page": [
-      "static/chunks/webpack-8179614763559006.js",
-      "static/chunks/4bd1b696-461d313b0f992674.js",
-      "static/chunks/1517-e36c2857d793a71e.js",
-      "static/chunks/main-app-c9d808af9ad15d0b.js",
-      "static/chunks/8173-de29aeafc18fed74.js",
-      "static/chunks/app/services/agriculture/page-09ff1cd53c2606fb.js"
+      "static/chunks/app/services/ev-charging/page-3020f4b6f99edc7e.js"
     ],
     "/services/commercial/page": [
       "static/chunks/webpack-8179614763559006.js",
@@ -103,21 +95,21 @@
       "static/chunks/8173-de29aeafc18fed74.js",
       "static/chunks/app/services/commercial/page-89c48e1d44df2995.js"
     ],
-    "/services/ev-charging/page": [
+    "/services/agriculture/page": [
       "static/chunks/webpack-8179614763559006.js",
       "static/chunks/4bd1b696-461d313b0f992674.js",
       "static/chunks/1517-e36c2857d793a71e.js",
       "static/chunks/main-app-c9d808af9ad15d0b.js",
       "static/chunks/8173-de29aeafc18fed74.js",
-      "static/chunks/app/services/ev-charging/page-3020f4b6f99edc7e.js"
+      "static/chunks/app/services/agriculture/page-09ff1cd53c2606fb.js"
     ],
-    "/services/industrial/page": [
+    "/about/page": [
       "static/chunks/webpack-8179614763559006.js",
       "static/chunks/4bd1b696-461d313b0f992674.js",
       "static/chunks/1517-e36c2857d793a71e.js",
       "static/chunks/main-app-c9d808af9ad15d0b.js",
       "static/chunks/8173-de29aeafc18fed74.js",
-      "static/chunks/app/services/industrial/page-aad9b2784c97070e.js"
+      "static/chunks/app/about/page-57ac344c9993e2dd.js"
     ],
     "/services/page": [
       "static/chunks/webpack-8179614763559006.js",
@@ -126,6 +118,14 @@
       "static/chunks/main-app-c9d808af9ad15d0b.js",
       "static/chunks/8173-de29aeafc18fed74.js",
       "static/chunks/app/services/page-ebc776835fb2fdeb.js"
+    ],
+    "/services/industrial/page": [
+      "static/chunks/webpack-8179614763559006.js",
+      "static/chunks/4bd1b696-461d313b0f992674.js",
+      "static/chunks/1517-e36c2857d793a71e.js",
+      "static/chunks/main-app-c9d808af9ad15d0b.js",
+      "static/chunks/8173-de29aeafc18fed74.js",
+      "static/chunks/app/services/industrial/page-aad9b2784c97070e.js"
     ],
     "/services/solar-water-pump/page": [
       "static/chunks/webpack-8179614763559006.js",
@@ -254,19 +254,19 @@
       "static/chunks/9298-b7b9cac10904845f.js",
       "static/chunks/app/dashboard/partner/layout-42034cd4cf3c7e38.js"
     ],
-    "/dashboard/partner/customers/page": [
-      "static/chunks/webpack-8179614763559006.js",
-      "static/chunks/4bd1b696-461d313b0f992674.js",
-      "static/chunks/1517-e36c2857d793a71e.js",
-      "static/chunks/main-app-c9d808af9ad15d0b.js",
-      "static/chunks/app/dashboard/partner/customers/page-f3f7df1956c3e699.js"
-    ],
     "/dashboard/partner/commission/page": [
       "static/chunks/webpack-8179614763559006.js",
       "static/chunks/4bd1b696-461d313b0f992674.js",
       "static/chunks/1517-e36c2857d793a71e.js",
       "static/chunks/main-app-c9d808af9ad15d0b.js",
       "static/chunks/app/dashboard/partner/commission/page-8896b1d37a2a80bf.js"
+    ],
+    "/dashboard/partner/customers/page": [
+      "static/chunks/webpack-8179614763559006.js",
+      "static/chunks/4bd1b696-461d313b0f992674.js",
+      "static/chunks/1517-e36c2857d793a71e.js",
+      "static/chunks/main-app-c9d808af9ad15d0b.js",
+      "static/chunks/app/dashboard/partner/customers/page-f3f7df1956c3e699.js"
     ],
     "/dashboard/partner/documents/page": [
       "static/chunks/webpack-8179614763559006.js",
