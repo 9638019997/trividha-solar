@@ -1,4 +1,3 @@
-import { SolarImage } from "@/components/solar/SolarImage";
 "use client";
 
 import Link from 'next/link';
@@ -31,26 +30,22 @@ const navItems = [
 
 const solutions = [
   {
-    title: '<SolarImage type="residential" className="h-40 w-full mb-4" />
-Residential Rooftop',
+    title: 'Residential Rooftop',
     icon: SunMedium,
     description: 'Smart rooftop systems for homes, apartments and villas with subsidy-ready design and hassle-free commissioning.',
   },
   {
-    title: '<SolarImage type="commercial" className="h-40 w-full mb-4" />
-Commercial Solar',
+    title: 'Commercial Solar',
     icon: Building2,
     description: 'Reduce turnover costs for offices, malls, warehouses and retail campuses with scalable solar power projects.',
   },
   {
-    title: '<SolarImage type="industrial" className="h-40 w-full mb-4" />
-Industrial EPC',
+    title: 'Industrial EPC',
     icon: Factory,
     description: 'Large-scale engineering, procurement and construction for manufacturing plants, logistics hubs and utility assets.',
   },
   {
-    title: '<SolarImage type="agriculture" className="h-40 w-full mb-4" />
-Agricultural Solar Pumps',
+    title: 'Agricultural Solar Pumps',
     icon: Tractor,
     description: 'Reliable irrigation support with sustainable pumping systems that improve farm productivity and reduce diesel dependence.',
   },
