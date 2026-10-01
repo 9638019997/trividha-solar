@@ -1,53 +1,29 @@
-const adminStats = [
-  ['Pipeline value', '₹12.9Cr'],
-  ['Approved quotations', '96'],
-  ['Open service requests', '26'],
-  ['Document verification', '84%'],
-];
+import SystemNav from '@/components/system/SystemNav';
 
 export default function AdminDashboardPage() {
   return (
-    <div className="space-y-8">
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {adminStats.map(([label, value]) => (
-          <div key={label} className="rounded-3xl border border-white/10 bg-slate-900 p-5">
-            <div className="text-sm text-slate-400">{label}</div>
-            <div className="mt-4 text-3xl font-black text-white">{value}</div>
-          </div>
-        ))}
-      </section>
-
-      <section className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-3xl border border-white/10 bg-slate-900 p-6">
-          <h2 className="font-display text-2xl font-bold text-white">Operational health</h2>
-          <div className="mt-6 space-y-4">
-            {[
-              ['Installation throughput', '94%'],
-              ['Document compliance', '92%'],
-              ['Support backlog', '8 tickets'],
-            ].map(([label, value]) => (
-              <div key={label}>
-                <div className="mb-2 flex justify-between text-sm text-slate-300">
-                  <span>{label}</span>
-                  <span className="font-medium text-white">{value}</span>
-                </div>
-                <div className="h-2 rounded-full bg-slate-800">
-                  <div className="h-2 rounded-full bg-gradient-to-r from-brand to-emerald-400" style={{ width: value.includes('%') ? value : '75%' }} />
-                </div>
-              </div>
-            ))}
-          </div>
+    <div className="p-6 max-w-7xl mx-auto space-y-6">
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-900">Admin Control Center</h1>
+          <p className="text-sm text-gray-500 mt-1">Manage system configurations, branches, and security policies.</p>
         </div>
-
-        <div className="rounded-3xl border border-brand/30 bg-brand/10 p-6">
-          <div className="text-sm uppercase tracking-[0.2em] text-brand">Executive summary</div>
-          <div className="mt-4 space-y-3 text-slate-200">
-            <p>Lead quality remains above benchmark with stronger conversion from partner-managed channels.</p>
-            <p>Commercial and industrial opportunities continue to expand across Gujarat demand pockets.</p>
-            <p>Recommended priority: accelerate subsidy documentation coverage and support backlog reduction.</p>
-          </div>
+      </div>
+      <SystemNav />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+          <h2 className="text-sm font-semibold text-gray-500 uppercase">System Status</h2>
+          <p className="text-2xl font-bold text-emerald-600 mt-2">Operational</p>
         </div>
-      </section>
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+          <h2 className="text-sm font-semibold text-gray-500 uppercase">Total Modules</h2>
+          <p className="text-2xl font-bold text-gray-900 mt-2">12 Active</p>
+        </div>
+        <div className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+          <h2 className="text-sm font-semibold text-gray-500 uppercase">Security State</h2>
+          <p className="text-2xl font-bold text-amber-600 mt-2">Enforced</p>
+        </div>
+      </div>
     </div>
   );
 }
