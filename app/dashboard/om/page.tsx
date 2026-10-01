@@ -4,7 +4,6 @@ import {
   mockPlants,
   mockServiceRequests,
   mockBreakdowns,
-  mockAMCContracts,
 } from '@/lib/mock/omData';
 
 export default function OMDashboardPage() {
@@ -29,7 +28,6 @@ export default function OMDashboardPage() {
 
       <OMNav />
 
-      {/* KPI Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <p className="text-xs uppercase tracking-wider text-gray-500 font-semibold">Capacity Under O&M</p>
@@ -53,7 +51,6 @@ export default function OMDashboardPage() {
         </div>
       </div>
 
-      {/* Fleet Live Table */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         <div className="p-4 border-b border-gray-100 flex justify-between items-center">
           <h2 className="font-semibold text-gray-900">Rooftop Solar Fleet Telemetry</h2>

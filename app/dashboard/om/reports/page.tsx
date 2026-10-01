@@ -15,7 +15,7 @@ export default function OMReportsPage() {
           <h3 className="font-bold text-gray-900 text-base">Key SLA Performance Metrics</h3>
           <ul className="divide-y divide-gray-100 text-sm">
             <li className="py-2.5 flex justify-between">
-              <span className="text-gray-600">First-Response SLA (< 24h)</span>
+              <span className="text-gray-600">First-Response SLA (&lt; 24h)</span>
               <span className="font-bold text-emerald-600">98.5%</span>
             </li>
             <li className="py-2.5 flex justify-between">
