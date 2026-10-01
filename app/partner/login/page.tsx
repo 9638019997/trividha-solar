@@ -2,7 +2,6 @@
 import { useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import Image from 'next/image';
 
 function PartnerLoginForm() {
   const router = useRouter();
@@ -78,21 +77,26 @@ function PartnerLoginForm() {
         <div className="w-full md:w-1/2 bg-white rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center shadow-lg border border-gray-100">
           <div className="w-full max-w-xs space-y-3">
             
-            {/* Exact Original Trividha Logo */}
+            {/* Crisp HD Vector Logo */}
             <div className="flex flex-col items-center justify-center pb-2">
-              <img
-                src="/logo.png"
-                alt="Trividha Solar"
-                className="h-20 w-auto object-contain mx-auto"
-                onError={(e) => {
-                  const target = e.currentTarget;
-                  if (target.src.endsWith('/logo.png')) {
-                    target.src = '/trividha-logo.png';
-                  } else if (target.src.endsWith('/trividha-logo.png')) {
-                    target.src = '/assets/logo.png';
-                  }
-                }}
-              />
+              <div className="w-16 h-16 relative flex items-center justify-center rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-300 p-3 shadow-md shadow-amber-500/20">
+                <svg viewBox="0 0 40 40" fill="none" className="w-full h-full text-white" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  {/* Central Sun */}
+                  <circle cx="20" cy="20" r="7" fill="currentColor" fillOpacity="0.25" />
+                  {/* Rays */}
+                  <line x1="20" y1="4" x2="20" y2="8" />
+                  <line x1="20" y1="32" x2="20" y2="36" />
+                  <line x1="4" y1="20" x2="8" y2="20" />
+                  <line x1="32" y1="20" x2="36" y2="20" />
+                  <line x1="8.69" y1="8.69" x2="11.52" y2="11.52" />
+                  <line x1="28.48" y1="28.48" x2="31.31" y2="31.31" />
+                  <line x1="8.69" y1="31.31" x2="11.52" y2="28.48" />
+                  <line x1="28.48" y1="11.52" x2="31.31" y2="8.69" />
+                </svg>
+              </div>
+              <span className="mt-2 text-sm font-black tracking-wider text-gray-900 uppercase">
+                TRIVIDHA <span className="text-amber-600">SOLAR</span>
+              </span>
             </div>
 
             {/* Select Partner Role */}
@@ -120,7 +124,7 @@ function PartnerLoginForm() {
                 onClick={() => handleOAuthLogin('google')}
                 className="w-full py-2 px-3 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold flex items-center justify-center gap-2.5 transition"
               >
-                <svg className="w-4 h-4" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
@@ -134,7 +138,7 @@ function PartnerLoginForm() {
                 onClick={() => handleOAuthLogin('microsoft')}
                 className="w-full py-2 px-3 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold flex items-center justify-center gap-2.5 transition"
               >
-                <svg className="w-3.5 h-3.5" viewBox="0 0 21 21">
+                <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 21 21">
                   <rect x="1" y="1" width="9" height="9" fill="#f25022" />
                   <rect x="11" y="1" width="9" height="9" fill="#7fba00" />
                   <rect x="1" y="11" width="9" height="9" fill="#00a4ef" />
@@ -148,7 +152,7 @@ function PartnerLoginForm() {
                 onClick={() => handleOAuthLogin('yahoo')}
                 className="w-full py-2 px-3 rounded-xl border border-gray-300 hover:bg-purple-50 text-gray-700 text-xs font-semibold flex items-center justify-center gap-2.5 transition"
               >
-                <div className="w-4 h-4 rounded-full bg-[#6001d2] flex items-center justify-center text-white text-[10px] font-black italic">
+                <div className="w-4 h-4 shrink-0 rounded-full bg-[#6001d2] flex items-center justify-center text-white text-[10px] font-black italic">
                   Y!
                 </div>
                 <span>Continue with Yahoo Mail</span>
@@ -159,7 +163,7 @@ function PartnerLoginForm() {
                 onClick={() => handleOAuthLogin('corporate')}
                 className="w-full py-2 px-3 rounded-xl border border-gray-300 hover:bg-gray-50 text-gray-700 text-xs font-semibold flex items-center justify-center gap-2.5 transition"
               >
-                <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-4 h-4 shrink-0 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <span>Any Work / Company Email</span>
