@@ -14,7 +14,7 @@ export default function MonitoringPage() {
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <p className="text-xs uppercase text-gray-500 font-semibold">Average Fleet PR</p>
           <p className="text-2xl font-bold text-emerald-600 mt-2">80.4%</p>
-          <p className="text-xs text-gray-400 mt-1">Target benchmark: >= 78%</p>
+          <p className="text-xs text-gray-400 mt-1">Target benchmark: &gt;= 78%</p>
         </div>
         <div className="bg-white p-5 rounded-xl border border-gray-200 shadow-sm">
           <p className="text-xs uppercase text-gray-500 font-semibold">Estimated Daily Generation</p>
