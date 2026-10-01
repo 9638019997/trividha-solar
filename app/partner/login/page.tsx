@@ -33,7 +33,7 @@ function PartnerLoginForm() {
 
   return (
     <div className="min-h-screen bg-[#060a12] text-white flex flex-col justify-center items-center p-4 md:p-8 font-sans">
-      {/* Top Bar Header (Without Gujarat operations) */}
+      {/* Top Bar Header */}
       <div className="w-full max-w-4xl flex justify-between items-center mb-6">
         <div>
           <span className="text-[11px] font-bold tracking-widest text-amber-500 uppercase">TRIVIDHA SOLAR</span>
@@ -78,31 +78,21 @@ function PartnerLoginForm() {
         <div className="w-full md:w-1/2 bg-white rounded-3xl p-6 md:p-8 flex flex-col justify-center items-center shadow-lg border border-gray-100">
           <div className="w-full max-w-xs space-y-3">
             
-            {/* Original Customer Login Logo */}
-            <div className="flex flex-col items-center justify-center pb-1">
-              <div className="relative w-20 h-20 mb-1">
-                <Image
-                  src="/logo.png"
-                  alt="Trividha Solar"
-                  fill
-                  className="object-contain"
-                  onError={(e) => {
-                    // Fallback to SVG if png not found
-                    (e.target as HTMLElement).style.display = 'none';
-                  }}
-                />
-                <div className="w-20 h-20 flex items-center justify-center rounded-2xl bg-amber-50 p-2 shadow-sm border border-amber-100">
-                  <svg viewBox="0 0 64 64" fill="none" className="w-full h-full">
-                    <circle cx="32" cy="24" r="10" fill="#F59E0B" />
-                    <path d="M32 6V10M32 38V42M14 24H18M46 24H50M19.3 11.3L22.1 14.1M41.9 33.9L44.7 36.7M19.3 36.7L22.1 33.9M41.9 14.1L44.7 11.3" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
-                    <path d="M16 48L26 38H38L48 48H16Z" fill="#10B981" />
-                    <path d="M32 38V48M24 43H40" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </div>
-              <span className="text-sm font-black tracking-wider text-gray-900 uppercase">
-                TRIVIDHA <span className="text-amber-600">SOLAR</span>
-              </span>
+            {/* Exact Original Trividha Logo */}
+            <div className="flex flex-col items-center justify-center pb-2">
+              <img
+                src="/logo.png"
+                alt="Trividha Solar"
+                className="h-20 w-auto object-contain mx-auto"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (target.src.endsWith('/logo.png')) {
+                    target.src = '/trividha-logo.png';
+                  } else if (target.src.endsWith('/trividha-logo.png')) {
+                    target.src = '/assets/logo.png';
+                  }
+                }}
+              />
             </div>
 
             {/* Select Partner Role */}
