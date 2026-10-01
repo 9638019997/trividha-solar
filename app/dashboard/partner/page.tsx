@@ -51,7 +51,7 @@ export default function PartnerDashboard() {
         {/* Right Side: Quick Action & Visual */}
         <Card className="space-y-4">
           <h3 className="font-bold text-base text-gray-900 dark:text-white">Solar Project Showcase</h3>
-          <SolarImage type="commercial" className="h-44 w-full" />
+          <SolarImage type="commercial" alt="Commercial Solar Installation" className="h-44 w-full" />
           <Button variant="primary" className="w-full">
             + Submit New Solar Lead
           </Button>
