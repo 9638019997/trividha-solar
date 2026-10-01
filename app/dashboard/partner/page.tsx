@@ -1,73 +1,62 @@
-const stats = [
-  { label: 'KYC Status', value: '82% complete' },
-  { label: 'Leads', value: '24 active' },
-  { label: 'Customers', value: '12 onboarded' },
-  { label: 'Quotations', value: '8 in review' },
-  { label: 'Projects', value: '6 live' },
-  { label: 'Commission', value: '₹12.4L' },
-  { label: 'Wallet', value: '₹3.8L' },
-  { label: 'Notifications', value: '5 new' },
-];
+'use client';
+import { DashboardShell } from '@/components/layout/DashboardShell';
+import { Card, StatCard, Badge, Button } from '@/components/ui/Primitives';
+import { SolarImage } from '@/components/solar/SolarImage';
 
-const leadSummary = [
-  { label: 'New', value: '08' },
-  { label: 'Contacted', value: '05' },
-  { label: 'Survey', value: '04' },
-  { label: 'Won', value: '03' },
-  { label: 'Lost', value: '02' },
-  { label: 'Completed', value: '02' },
-];
+export default function PartnerDashboard() {
+  const navItems = [
+    { label: 'Overview', href: '/dashboard/partner' },
+    { label: 'My Leads', href: '/dashboard/partner/leads' },
+    { label: 'Commission', href: '/dashboard/partner/commission' },
+    { label: 'Projects', href: '/dashboard/partner/projects' }
+  ];
 
-export default function PartnerDashboardPage() {
   return (
-    <div className="space-y-8">
-      <section className="rounded-[32px] border border-slate-200 bg-white p-6 shadow-sm">
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-[0.22em] text-amber-600">Welcome</div>
-            <h2 className="mt-2 text-3xl font-black text-slate-900">Hello, Aman</h2>
-            <p className="mt-3 max-w-xl text-slate-600">Track your leads, customers, commissions and project delivery momentum from your channel partner workspace.</p>
-          </div>
-          <div className="rounded-[24px] border border-amber-200 bg-amber-50 px-5 py-4 text-center">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">KYC</div>
-            <div className="mt-2 text-2xl font-black text-slate-900">82% complete</div>
-          </div>
-        </div>
-      </section>
+    <DashboardShell title="Partner Enterprise Portal" role="Channel Partner" navItems={navItems}>
+      {/* Stat Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <StatCard title="Total Leads" value="142" change="+12% this month" />
+        <StatCard title="Approved Projects" value="38" change="₹1.4 Cr Pipeline" />
+        <StatCard title="Pending Surveys" value="09" change="Active allocation" />
+        <StatCard title="Earned Commission" value="₹3,45,000" change="Paid to account" />
+      </div>
 
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {stats.map((stat) => (
-          <div key={stat.label} className="rounded-[24px] border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{stat.label}</div>
-            <div className="mt-3 text-2xl font-black text-slate-900">{stat.value}</div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        {/* Left Side: Recent Allocations */}
+        <Card className="lg:col-span-2">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-bold text-base text-gray-900 dark:text-white">Recent Solar Projects</h3>
+            <Badge variant="amber">Live Pipeline</Badge>
           </div>
-        ))}
-      </section>
-
-      <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">Lead summary</div>
-          <h3 className="mt-3 text-2xl font-black text-slate-900">Pipeline health</h3>
-          <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-            {leadSummary.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">{item.label}</div>
-                <div className="mt-2 text-2xl font-black text-slate-900">{item.value}</div>
+          <div className="space-y-3">
+            {[
+              { id: 'PRJ-1021', name: 'Surat Commercial Rooftop 50kW', status: 'In Survey', stage: 'EPC' },
+              { id: 'PRJ-1022', name: 'Tapi PM Surya Ghar 3kW', status: 'Approved', stage: 'Installation' },
+              { id: 'PRJ-1023', name: 'Navsari Industrial Plant 100kW', status: 'Discom Sanction', stage: 'Net Metering' }
+            ].map((p) => (
+              <div key={p.id} className="p-3.5 bg-gray-50 dark:bg-gray-800/50 rounded-xl flex items-center justify-between border border-gray-100 dark:border-gray-700">
+                <div>
+                  <p className="text-xs font-bold text-amber-600">{p.id}</p>
+                  <p className="text-sm font-semibold text-gray-800 dark:text-gray-100">{p.name}</p>
+                </div>
+                <div className="text-right">
+                  <Badge variant="green">{p.status}</Badge>
+                  <p className="text-[11px] text-gray-400 mt-1">{p.stage}</p>
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </Card>
 
-        <div className="rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600">Notifications</div>
-          <h3 className="mt-3 text-2xl font-black text-slate-900">Action items</h3>
-          <div className="mt-6 space-y-4">
-            {['New lead from Ahmedabad', 'Quotation ready for review', 'Commission released', 'Project completed'].map((item) => (
-              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-slate-700">{item}</div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
+        {/* Right Side: Quick Action & Visual */}
+        <Card className="space-y-4">
+          <h3 className="font-bold text-base text-gray-900 dark:text-white">Solar Project Showcase</h3>
+          <SolarImage type="commercial" className="h-44 w-full" />
+          <Button variant="primary" className="w-full">
+            + Submit New Solar Lead
+          </Button>
+        </Card>
+      </div>
+    </DashboardShell>
   );
 }
