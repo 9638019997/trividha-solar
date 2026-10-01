@@ -1,7 +1,7 @@
 'use client';
 import { DashboardShell } from '@/components/layout/DashboardShell';
 import { Card, StatCard, Badge, Button } from '@/components/ui/Primitives';
-import { SolarImage } from '@/components/solar/SolarImage';
+import SolarImage from "@/components/solar/SolarImage";
 
 export default function PartnerDashboard() {
   const navItems = [
