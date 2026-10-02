@@ -1,8 +1,8 @@
 'use client';
 
-import { useEffect, useState, useTransition } from 'react';
+import React, { useEffect, useState, useTransition } from 'react';
 import CRMNav from '@/components/crm/CRMNav';
-import { getLeads, updateLeadStatus, deleteLead, createLead } from '@/app/actions/leads';
+import { getLeads, updateLeadStatus, deleteLead, createLeadAction } from '@/app/actions/leads';
 import { Lead } from '@/lib/types/leads';
 
 export default function LeadsPipelinePage() {
@@ -13,7 +13,6 @@ export default function LeadsPipelinePage() {
   const [isPending, startTransition] = useTransition();
   const [formError, setFormError] = useState<string | null>(null);
 
-  // New Lead Form State
   const [showAddModal, setShowAddModal] = useState(false);
   const [newLead, setNewLead] = useState({
     full_name: '',
@@ -30,7 +29,7 @@ export default function LeadsPipelinePage() {
     try {
       const data = await getLeads();
       setLeads(data || []);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
     } finally {
       setLoading(false);
@@ -43,10 +42,10 @@ export default function LeadsPipelinePage() {
 
   const filteredLeads = leads.filter((lead) => {
     const matchesSearch =
-      lead.full_name?.toLowerCase().includes(search.toLowerCase()) ||
-      lead.email?.toLowerCase().includes(search.toLowerCase()) ||
-      lead.phone?.toLowerCase().includes(search.toLowerCase()) ||
-      lead.city?.toLowerCase().includes(search.toLowerCase());
+      (lead.full_name || '').toLowerCase().includes(search.toLowerCase()) ||
+      (lead.email || '').toLowerCase().includes(search.toLowerCase()) ||
+      (lead.phone || '').toLowerCase().includes(search.toLowerCase()) ||
+      (lead.city || '').toLowerCase().includes(search.toLowerCase());
 
     const matchesStatus = statusFilter === 'all' || lead.status === statusFilter;
     return matchesSearch && matchesStatus;
@@ -89,9 +88,8 @@ export default function LeadsPipelinePage() {
     if (newLead.monthly_bill) formData.append('monthly_bill', newLead.monthly_bill);
     if (newLead.notes) formData.append('notes', newLead.notes);
 
-    const res = await createLead(formData);
-    if (res.success && res.data) {
-      setLeads((prev) => [res.data, ...prev]);
+    const res = await createLeadAction({}, formData);
+    if (res.success) {
       setShowAddModal(false);
       setNewLead({
         full_name: '',
@@ -102,6 +100,7 @@ export default function LeadsPipelinePage() {
         monthly_bill: '',
         notes: '',
       });
+      loadLeads();
     } else {
       setFormError(res.message || 'Failed to create lead');
     }
@@ -124,7 +123,6 @@ export default function LeadsPipelinePage() {
 
       <CRMNav />
 
-      {/* Filter and Search Bar */}
       <div className="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between">
         <input
           type="text"
@@ -150,7 +148,6 @@ export default function LeadsPipelinePage() {
         </div>
       </div>
 
-      {/* Leads Table */}
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
         {loading ? (
           <div className="p-12 text-center text-gray-500">Loading leads from Supabase...</div>
@@ -187,17 +184,7 @@ export default function LeadsPipelinePage() {
                         disabled={isPending}
                         value={lead.status}
                         onChange={(e) => handleStatusChange(lead.id, e.target.value as Lead['status'])}
-                        className={`text-xs font-semibold px-2.5 py-1 rounded-full border border-transparent cursor-pointer focus:outline-none ${
-                          lead.status === 'new'
-                            ? 'bg-blue-100 text-blue-800'
-                            : lead.status === 'contacted'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : lead.status === 'qualified'
-                            ? 'bg-purple-100 text-purple-800'
-                            : lead.status === 'converted'
-                            ? 'bg-green-100 text-green-800'
-                            : 'bg-gray-100 text-gray-800'
-                        }`}
+                        className="text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-200 cursor-pointer focus:outline-none"
                       >
                         <option value="new">New</option>
                         <option value="contacted">Contacted</option>
@@ -223,7 +210,6 @@ export default function LeadsPipelinePage() {
         )}
       </div>
 
-      {/* Add Lead Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-xl max-w-md w-full p-6 space-y-4 shadow-xl">
