@@ -2,20 +2,41 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://trividhasolar.in'),
   title: {
-    default: 'Trividha Solar',
-    template: '%s | Trividha Solar',
+    default: "Trividha Synergy | Rooftop Solar EPC & PM Surya Ghar Subsidy Gujarat",
+    template: "%s | Trividha Solar",
   },
-  description:
-    'PAN-India solar EPC solutions with rooftop solar, commercial systems, industrial project delivery, PM Surya Ghar guidance and partner support.',
-  keywords: ['Trividha Solar', 'solar EPC India', 'PM Surya Ghar', 'rooftop solar', 'industrial solar', 'agricultural solar pumps'],
+  description: "Official authorized rooftop solar EPC in South Gujarat (Surat, Tapi, Vyara, Navsari, Valsad). PM Surya Ghar Muft Bijli Yojana installation, subsidy guidance & commercial plants.",
+  keywords: [
+    "Solar Rooftop Gujarat",
+    "PM Surya Ghar Muft Bijli Yojana",
+    "Trividha Synergy Solar",
+    "Solar Panel Installation Surat",
+    "Solar Inverter Tapi Vyara",
+    "DGVCL Solar Subsidy",
+    "Industrial Solar Gujarat"
+  ],
+  authors: [{ name: "Trividha Synergy LLP" }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://trividhasolar.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: 'Trividha Solar | Premium solar EPC solutions across India',
-    description: 'Clean energy systems for homes, businesses, industrial facilities and agricultural operations.',
-    url: 'https://trividhasolar.in',
-    siteName: 'Trividha Solar',
-    type: 'website',
+    title: "Trividha Synergy - Leading Rooftop Solar EPC Gujarat",
+    description: "Avail up to ₹78,000 subsidy under PM Surya Ghar Yojana. Trusted residential, commercial and industrial solar installations in South Gujarat.",
+    url: "https://trividhasolar.com",
+    siteName: "Trividha Synergy LLP",
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Trividha Synergy Solar Gujarat",
+    description: "Empowering homes and businesses with clean solar energy & direct government subsidy.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
