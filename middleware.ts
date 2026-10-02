@@ -2,16 +2,26 @@ import { NextResponse, type NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
-  
-  // Dashboard routes require authentication
+
+  // Protect all dashboard routes
   if (path.startsWith('/dashboard')) {
-    const authCookie = request.cookies.get('sb-access-token') || request.cookies.get('supabase-auth-token');
+    const cookies = request.cookies.getAll();
     
-    // In production with live Supabase session, verify cookie exists
-    // If not authenticated, redirect to partner or customer login
-    if (!authCookie && process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_SUPABASE_URL) {
-      const loginUrl = path.includes('/customer') ? '/dashboard/customer/login' : '/partner/login';
-      return NextResponse.redirect(new URL(loginUrl, request.url));
+    // Check modern chunked/project-scoped Supabase SSR auth cookies
+    const hasSsrToken = cookies.some(
+      (c) => c.name.startsWith('sb-') && c.name.includes('-auth-token')
+    );
+
+    // Fallback check for legacy cookie keys
+    const hasLegacyToken = Boolean(
+      request.cookies.get('sb-access-token')?.value ||
+      request.cookies.get('supabase-auth-token')?.value
+    );
+
+    if (!hasSsrToken && !hasLegacyToken) {
+      const redirectUrl = new URL('/auth/login', request.url);
+      redirectUrl.searchParams.set('redirectTo', path);
+      return NextResponse.redirect(redirectUrl);
     }
   }
 
@@ -19,5 +29,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*']
+  matcher: ['/dashboard/:path*'],
 };
