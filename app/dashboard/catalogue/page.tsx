@@ -19,6 +19,7 @@ export default function AdminCatalogueManager() {
       </header>
 
       <section className="max-w-6xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Brand Management Column */}
         <div className="bg-slate-900 border border-slate-800 rounded-xl p-5">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-sm font-bold text-white uppercase tracking-wider">Configured Brands</h2>
@@ -38,6 +39,7 @@ export default function AdminCatalogueManager() {
           </div>
         </div>
 
+        {/* Product Management Column */}
         <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-xl p-5">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-sm font-bold text-white uppercase tracking-wider">Product Models & Equipment</h2>
@@ -51,7 +53,7 @@ export default function AdminCatalogueManager() {
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="font-bold text-white">{p.model}</span>
-                    <span className="text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded border border-amber-500/20">
+                    <span className="text-[10px] text-amber-400 bg-amber-500/10 px-1.5 py-0.2 rounded border border-amber-500/20">
                       {p.category}
                     </span>
                   </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { INITIAL_PRODUCTS } from '@/lib/catalogue/data';
+import { INITIAL_PRODUCTS, INITIAL_MANUFACTURERS } from '@/lib/catalogue/data';
 
 export default function ProductCataloguePage() {
   const categories = [
@@ -42,6 +42,7 @@ export default function ProductCataloguePage() {
         </div>
       </header>
 
+      {/* Catalogue Content */}
       <section className="max-w-7xl mx-auto mt-8">
         <div className="mb-8">
           <h2 className="text-2xl font-extrabold text-white">Clean Energy Equipment & Components</h2>
@@ -50,7 +51,8 @@ export default function ProductCataloguePage() {
           </p>
         </div>
 
-        <div className="flex gap-2 overflow-x-auto pb-4">
+        {/* Categories Bar */}
+        <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-thin">
           {categories.map((cat, idx) => (
             <span
               key={idx}
@@ -61,6 +63,7 @@ export default function ProductCataloguePage() {
           ))}
         </div>
 
+        {/* Product Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
           {INITIAL_PRODUCTS.map((prod) => (
             <div
@@ -109,6 +112,7 @@ export default function ProductCataloguePage() {
         </div>
       </section>
 
+      {/* Mandatory Legal Disclaimer */}
       <footer className="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-800/80 text-center text-xs text-slate-500">
         <p>
           All trademarks, logos, brand names and product names are the property of their respective owners and are used only for identification and informational purposes.
