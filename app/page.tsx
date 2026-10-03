@@ -22,7 +22,6 @@ export default function Home() {
             className="rounded object-contain"
           />
           <span className="text-sm font-semibold tracking-wider text-amber-500 uppercase">
-            Enterprise Clean Energy
           </span>
         </div>
         <nav className="flex items-center gap-4">

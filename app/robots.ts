@@ -1,16 +1,13 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trividhasolar.com';
-
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://trividhasolar.com';
   return {
-    rules: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/dashboard/', '/api/', '/auth/'],
-      },
-    ],
-    sitemap: `${baseUrl}/sitemap.xml`,
+    rules: {
+      userAgent: '*',
+      allow: '/',
+      disallow: ['/dashboard/', '/api/', '/auth/'],
+    },
+    sitemap: `${siteUrl}/sitemap.xml`,
   };
 }
