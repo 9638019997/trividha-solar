@@ -10,27 +10,27 @@ import { DownloadCenter } from "@/components/home/DownloadCenter";
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800 px-6 py-4 flex items-center justify-between">
+      {/* Header with enlarged logo and cleaned typography */}
+      <header className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur border-b border-slate-800 px-6 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Image
             src="/assets/trividha_logo.png"
             alt="Trividha Solar"
-            width={38}
-            height={38}
+            width={48}
+            height={48}
+            priority
             className="rounded object-contain"
           />
-          <div>
-            <span className="text-lg font-bold tracking-tight text-white block leading-tight">TRIVIDHA SOLAR</span>
-            <span className="text-[10px] text-amber-500 tracking-wider font-semibold block uppercase">Enterprise Platform</span>
-          </div>
+          <span className="text-sm font-semibold tracking-wider text-amber-500 uppercase">
+            Enterprise Clean Energy
+          </span>
         </div>
         <nav className="flex items-center gap-4">
           <Link
-            href="/dashboard"
+            href="/dashboard/system/branding"
             className="px-4 py-2 text-xs font-medium bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-lg transition"
           >
-            Access Dashboard
+            System Console
           </Link>
         </nav>
       </header>
@@ -38,7 +38,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 px-6 max-w-5xl mx-auto text-center">
         <div className="inline-block px-3 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-xs font-semibold mb-6">
-          Premium Solar Engineering & EPC Operations
+          Premium Solar Engineering & AI-Ready EPC Platform
         </div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
           Powering Gujarat with Sustainable Clean Energy
@@ -48,7 +48,7 @@ export default function Home() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Link
-            href="/dashboard"
+            href="/dashboard/system/branding"
             className="px-6 py-3 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-semibold text-sm transition"
           >
             Open Enterprise Portal
@@ -62,7 +62,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Phase 2.2 Functional Blocks */}
+      {/* Functional Blocks */}
       <TrustSection />
       <VisualAssetGallery />
       <ManufacturerSection />
